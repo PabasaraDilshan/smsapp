@@ -9,7 +9,9 @@ export default function StudentRequests(props){
     const [click,setClick] = useState(false);
     const [view,setView] = useState();
     var arr=[];
+
     useEffect(()=>{
+        
         const query = firebase.firestore().collection("requests").where('id','==',currentUser.email.split("@")[0]).orderBy('type','asc');
     query.get().then((x)=>{
         setReq(x.docs);
@@ -39,8 +41,9 @@ export default function StudentRequests(props){
                 <tr><td>Type:</td><td>{view.type}</td></tr>
                 <tr><td>Body:</td><td>{view.body}</td></tr>
                 </tbody></table>
+                <h2><strong>{view.status}</strong></h2>
                 <hr/>
-                <StudentReplies view={view}/>
+                <StudentReplies isadmin={false} view={view}/>
               </>
               }
             

@@ -1,0 +1,10 @@
+.allrequests b{
+    color: rgb(0, 119, 255);
+    text-decoration: underline;
+}
+.allrequests b:hover{
+    cursor: pointer;
+}
+.requestscontainer{
+    padding: 20px 20px;
+}
