@@ -1,7 +1,7 @@
 import {useAuth} from '../contexts/AuthContext';
 import firebase from '../firebase' ;
 import {useEffect, useState} from 'react';
-import Replies from './Replies'
+import StudentReplies from './StudentReplies'
 import './StudentRequests.css'
 export default function StudentRequests(props){
     const {currentUser} = useAuth();
@@ -39,7 +39,8 @@ export default function StudentRequests(props){
                 <tr><td>Type:</td><td>{view.type}</td></tr>
                 <tr><td>Body:</td><td>{view.body}</td></tr>
                 </tbody></table>
-                <Replies view={view}/>
+                <hr/>
+                <StudentReplies view={view}/>
               </>
               }
             
