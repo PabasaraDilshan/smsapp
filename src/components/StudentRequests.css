@@ -1,0 +1,9 @@
+.reqlist{
+    color: rgb(0, 183, 255);
+    text-decoration: underline;
+
+}
+.reqlist:hover{
+ cursor: pointer; 
+ color: rgb(0, 140, 255);  
+}
