@@ -1,30 +1,44 @@
 import {useAuth} from '../contexts/AuthContext';
 import firebase from '../firebase' ;
-import {useEffect, useState} from 'react';
+import { useEffect, useState} from 'react';
 import StudentReplies from './StudentReplies'
 import './StudentRequests.css'
+
+
 export default function StudentRequests(props){
     const {currentUser} = useAuth();
-    const [requests,setReq] = useState();
     const [click,setClick] = useState(false);
     const [view,setView] = useState();
-    var arr=[];
-
+    const [requests,setReq] = useState();
     useEffect(()=>{
-        
         const query = firebase.firestore().collection("requests").where('id','==',currentUser.email.split("@")[0]).orderBy('type','asc');
-    query.get().then((x)=>{
+    query.onSnapshot((x)=>{
+        console.log("test",x)
         setReq(x.docs);
     })
-    },[currentUser])
-
     
+
+
+
+    },[currentUser.email]);
+
+    useEffect(()=>{
+        if(click){
+            setView((v)=>{
+                var arr = requests[v.index].data();
+                return {...arr,reqid:v.reqid,index:v.index};
+            })
+        }
+
+    },[requests,click])
+    
+
     function handleClick(e){
         setClick(s=>!s);
         var i = e.target.id;
-        arr = requests[i].data();
+        var arr = requests[i].data();
         //console.log(requests[i])
-        setView({...arr,reqid:requests[i].id});
+        setView({...arr,reqid:requests[i].id,index:i});
         
     }
 

@@ -1,8 +1,16 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import firebase from '../firebase';
 export default function Replies(props){
-    const [rep,setRep] = useState(props.view.msg);
+    const [rep,setRep] = useState();
     const [text,setText] = useState("");
+
+
+    
+    useEffect(()=>{
+        if(props.view.msg){
+        setRep([...props.view.msg]);}
+    },[props])
+
     function handleReply(){
             if(rep){var arr = rep;}else{
                 arr = [];
@@ -23,7 +31,6 @@ export default function Replies(props){
     if(rep){  
 
     return(<><div className="replies">{rep.map((r,i)=>{
-
         return (<div className={r.name+"rep"} key = {i}><b>--{r.name==="student"?props.view.name:"Admin"}--</b><p>{r.reply}</p></div>);
     })}</div>
     <div className="replybox">

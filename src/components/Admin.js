@@ -15,6 +15,16 @@ export default function Admin(){
         })
     },[search])
 
+    useEffect(()=>{
+        if(click){
+            setView((v)=>{
+                var arr = requests[v.index].data();
+                return {...arr,reqid:v.reqid,index:v.index};
+            })
+        }
+
+    },[requests,click])
+
 
     function handleClick(e){
         
@@ -22,7 +32,7 @@ export default function Admin(){
         var arr = requests[i].data();
         //console.log(requests[i])
         setClick(s=>!s);
-        setView({...arr,reqid:requests[i].id}); 
+        setView({...arr,reqid:requests[i].id,index:i}); 
     }
     function changeStatus(s){
         view.status = s;
