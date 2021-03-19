@@ -1,10 +1,91 @@
 .allrequests b{
     color: rgb(0, 119, 255);
     text-decoration: underline;
+    background-color: #162916; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    width:200px;
+
 }
 .allrequests b:hover{
     cursor: pointer;
 }
 .requestscontainer{
-    padding: 20px 20px;
+    position: absolute;
+    overflow-y: scroll;
+    width:420px;
+	height: 400px;
+	background-color: rgba(173, 173, 173, 0.397);
+	color: #fff;
+	
+	box-sizing: border-box;
+	padding-left: 75px;
+	padding-top: 10px;
+    margin-top: 35px;
+    margin-bottom: auto;
+    margin-left: 60%;
+    
+}
+
+.AdminHead h1{
+    color:black;
+    font-size: 60px;
+    overflow-x:visible;
+    background-size: cover;
+    padding: 52px 125px;
+    display:table;
+    width:100%;
+    background-image: url('../bg-admin.jpeg');
+    width: 83.75%;
+    
+}
+.AdminPage{
+    color: black;
+}
+.selectAdmin select{
+    background-color: rgb(9, 114, 9);
+    width: 150px;
+    height: 40px;
+    font-size: x-large;
+    border-radius: 8px;
+    padding:0px 10px;
+    font-weight: bold;
+    color: white;
+}
+.selectAdmin select option{
+    text-align: center;
+}
+.selectAdmin input{
+    font-size: larger;
+    width:300px;
+    height: 40px;
+    border-radius: 8px;
+    margin-left: 10px;
+    padding:5px 10px;
+}
+.selectAdmin{
+    height: 100px;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 200px;
+    padding:10px 10px;
+    
+    
+}
+.logoutAdmin{
+    font-weight: bold;
+    background-color: brown;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-left: 94%;
+    
 }

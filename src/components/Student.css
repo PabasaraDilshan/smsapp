@@ -1,0 +1,54 @@
+.studentBody{
+    height:100%;
+    width:100%;
+    background-image: url("../bg-reqForm.jpg");
+    background-size: cover;
+    overflow: scroll;
+    position: fixed;
+}
+.userlogout{
+    list-style-type: none;
+    margin-top: 0;
+    padding: 0;
+    text-align: right;
+}
+.userlogout li{
+    display: inline-block;
+    font-size: 16px;
+}
+.logoutBtn{
+    font-weight: bold;
+    background-color: brown;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+    margin-right: 10px;
+    
+}
+.ReqBtn{
+    font-weight: bold;
+    background-color: darkgreen;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+}
+.ReqBtn:disabled,.ReqBtn:hover:disabled{
+    background-color: rgba(0, 100, 0, 0.315);
+    color: rgba(255, 255, 255, 0.514);
+}
+.ReqBtn:hover{
+    background-color:  rgb(45, 145, 53);;
+}
+.logoutBtn:hover{
+    background-color: rgb(185, 76, 76);
+  
+}
+.userIndex{
+    margin-right: 25px;
+}

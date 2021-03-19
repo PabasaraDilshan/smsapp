@@ -1,11 +1,25 @@
-.reqlist{
-    color: rgb(0, 183, 255);
+.reqlist b{
+    color: rgb(0, 0, 0);
     text-decoration: underline;
-
+}
+.reqlist{
+    border-radius: 2px;
+    width: 400px;
+    margin-bottom: 5px;
+    padding: 5px 20px;
+    background-color: rgba(148, 148, 148, 0.555);
+}
+.reqcontainer li{
+    list-style-type: none;
 }
 .reqlist:hover{
- cursor: pointer; 
+    cursor: pointer; 
+}
+
+.reqlist:hover b{
+
  color: rgb(0, 140, 255);  
+ 
 }
 .replies{
     padding-top: 10px;
@@ -34,4 +48,11 @@
 .replybox textarea{
     width: 300px;
     height: 100px;
+}
+.viewReqh2{
+    text-align: center;
+    font-size: x-large;
+    background-color: rgba(223, 213, 213, 0.493);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
 }

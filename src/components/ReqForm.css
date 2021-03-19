@@ -1,15 +1,13 @@
 .requestFormBody{
-    padding: 25px;
-    background-image: url("../bg-reqForm.jpg");
+    padding: 15px;
     background-size: cover;
 }
 
 .requestHeader{
     text-align: center;
     font-size: xx-large;
-    background-color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+    background-color: rgba(255, 255, 255, 0.493);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .requestform{
     padding: 10px;
@@ -35,6 +33,19 @@
     border-radius: 8px;
     cursor: pointer;
 }
+.Btnup{
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: white;
+    color: rgb(109, 109, 109);
+    width: auto;
+    min-width: 180px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.Btn:hover{
+    background-color: rgb(59, 107, 59);
+}
 #submitBtn{
     margin-left: 10px;
 }
@@ -50,7 +61,7 @@
     margin-top: 5px;
 }
 
-.name{
+.name, .subject{
     width: 97%;
 }
 .details{

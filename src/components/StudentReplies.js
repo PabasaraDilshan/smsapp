@@ -3,10 +3,16 @@ import firebase from '../firebase';
 export default function Replies(props){
     const [rep,setRep] = useState();
     const [text,setText] = useState("");
+    const [loading,setLoading] = useState(true);
 
 
     
     useEffect(()=>{
+        if(props.view){
+            setLoading(false)
+        }else{
+            setLoading(true)
+        }
         if(props.view.msg){
         setRep([...props.view.msg]);}
     },[props])
@@ -28,6 +34,7 @@ export default function Replies(props){
             }, { merge: true });
         }
 
+    if(!loading){
     if(rep){  
 
     return(<><div className="replies">{rep.map((r,i)=>{
@@ -43,4 +50,7 @@ export default function Replies(props){
             <button onClick={handleReply}>Reply</button>
         </div>
         }
+    }else{
+        return <><h1>Loading...</h1></>
+    }
 }

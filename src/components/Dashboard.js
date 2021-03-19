@@ -5,13 +5,10 @@ import Admin from './Admin'
 import Student from './Student'
 import Isadmin from '../contexts/Isadmin'
 export default function Dashboard(){
-    const {logout,currentUser} = useAuth();
+    const {currentUser} = useAuth();
 
 
         return (<>
-        <button onClick={()=>{
-            logout()
-        }}>Logout</button>
         { Isadmin(currentUser)? <Admin/>:<Student/>}
            
             </>

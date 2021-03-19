@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import firebase from '../firebase';
 import './Admin.css';
 import StudentReplies from './StudentReplies'
+import {useAuth} from '../contexts/AuthContext';
+import {GrUserAdmin} from 'react-icons/gr'
 //import AdminReplies from './AdminReplies'
 export default function Admin(){
     const [filter,setFilter] = useState("all");
@@ -9,6 +11,7 @@ export default function Admin(){
     const [click,setClick] = useState(false);
     const [view,setView] = useState();
     const [search,setSearch] = useState("")
+    const {logout} = useAuth();
     useEffect(()=>{
         firebase.firestore().collection("requests").onSnapshot((doc)=>{
             setReq(doc.docs);
@@ -44,15 +47,21 @@ export default function Admin(){
     }
 
     if(requests){
-    return (<><h1>Admin</h1>
+    return (<>
+    <button className="logoutAdmin" onClick={()=>{
+            logout()
+        }}>Logout</button>
+    <div className="AdminHead">
+        <h1><GrUserAdmin/><br/>Admin</h1>
+    </div>
     {!click&&<>
-    <div>
-    <select value={filter}  onChange={(e)=>{
+    <div className="selectAdmin">
+    <select  value={filter}  onChange={(e)=>{
         setFilter(e.target.value);
     }}  id = "filter">
-        <option value="all">All</option>
-        <option value="id">ById</option>
-        <option value="type">ByType</option>
+        <option value="">Filter</option>
+        <option value="id">By Id</option>
+        <option value="type">By Type</option>
     </select>
     <input value={search} onChange={(e)=>{
         setSearch(e.target.value);
@@ -94,7 +103,7 @@ export default function Admin(){
               </>
               }
     
-    </>);}else{
+    </>)}else{
         return(<h1>Loading...</h1>);
     }
 }
