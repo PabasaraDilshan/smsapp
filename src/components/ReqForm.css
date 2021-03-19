@@ -1,0 +1,63 @@
+.requestFormBody{
+    padding: 25px;
+    background-image: url("../bg-reqForm.jpg");
+    background-size: cover;
+}
+
+.requestHeader{
+    text-align: center;
+    font-size: xx-large;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+.requestform{
+    padding: 10px;
+    box-shadow: 0 10px 200px rgba(0, 0, 0, .5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.details{
+   width: 100%;
+   margin-top: 5px;
+}
+.requestform label{
+    font-weight: bold;
+    background-color: aliceblue;
+    padding: 3px
+}
+.Btn{
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: darkgreen;
+    color: white;
+    width: auto;
+    min-width: 180px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#submitBtn{
+    margin-left: 10px;
+}
+#clearBtn{
+    margin-left: 40px;
+}
+.selectFile{
+    margin: 25px;
+}
+.requestform input,select{
+    font-size: medium;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.name{
+    width: 97%;
+}
+.details{
+    font-size: 16px;
+}
+.myfile{
+    padding: 5px;
+    background-color: beige;
+    font-weight: bold;
+}
