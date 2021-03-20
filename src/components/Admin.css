@@ -40,40 +40,43 @@
     display:flex;
     font-size: 15px;
     margin-bottom: 5px;
-    width: 200px;
+    width: 250px;
 
 }
 .allrequests:hover{
     cursor: pointer;
+    background-color:  #162916c2;
 }
 .requestscontainer{
     position: absolute;
     overflow-y: scroll;
-    width:420px;
-	height: 400px;
+    width: 480px;
+	height: 420px;
 	background-color: rgba(173, 173, 173, 0.397);
 	color: #fff;
 	
 	box-sizing: border-box;
-	padding-left: 75px;
+	padding-left: 90px;
 	padding-top: 10px;
     margin-top: 35px;
     margin-bottom: auto;
-    margin-left: 60%;
+    margin-left: 55%;
+    
     
 }
 
 .AdminHead h1{
     color:black;
-    font-size: 60px;
+    font-size: 55px;
     overflow-x:visible;
-    background-size: cover;
-    padding: 52px 125px;
     display:table;
-    width:100%;
-    background-image: url('../bg-admin.jpeg');
+    padding: 50px 110px;
     width: 83.75%;
     
+}
+.AdminHead{
+    background-image: url('../bg-admin.jpeg');
+    background-size: cover;
 }
 .AdminPage{
     color: black;
@@ -88,6 +91,10 @@
     font-weight: bold;
     color: white;
 }
+.selectAdmin select:hover{
+    cursor: pointer;
+}
+
 .selectAdmin select option{
     text-align: center;
 }
@@ -103,19 +110,77 @@
     height: 100px;
     position: absolute;
     margin-top: 100px;
-    margin-left: 200px;
+    margin-left: 15%;
     padding:10px 10px;
     
     
 }
 .logoutAdmin{
+    position: absolute;
     font-weight: bold;
-    background-color: brown;
+    background-color: rgb(202, 31, 31);
     width: 80px;
     height: 40px;
     border-radius: 8px;
     cursor: pointer;
     color: white;
-    margin-left: 94%;
-    
+    margin-left: 93%;
+    margin-top: 1.5%;
+}
+.logoutAdmin:hover{
+    background-color: rgb(165, 42, 42);
+}
+.adminBody table{
+    margin-left: 70px;
+    font-size: 17px;
+}
+.adminBody h2{
+    margin-left: 40px;
+}
+.approveBtn{
+    background-color: green;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-left: 200px;
+}
+.approveBtn:hover{
+    background-color: yellow;
+    color: black;
+}
+
+.declineBtn{
+    background-color: red;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+}
+.declineBtn:hover{
+    background-color: yellow;
+    color: black;
+}
+
+.backBtn{
+    background-color: darkgreen;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-left: 93%;
+    margin-top: 8px;
+}
+.adminBody h2{
+    margin-left: 100px;
+}
+.details{
+    margin-left: 100px;
 }
