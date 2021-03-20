@@ -1,19 +1,49 @@
-.allrequests b{
-    color: rgb(0, 119, 255);
+.labelapp,.labeldec,.labelmissing{
+    margin:5px 10px 10px;
+}
+
+.labelapp{
+    background-color:rgb(28, 170, 0) ;
+  
+}
+.labeldec{
+    background-color:rgb(138, 2, 2) ;
+    
+}
+.labelmissing{
+    background-color:rgb(255, 230, 0) ;
+
+}
+
+.Approved b{
+    color: rgb(28, 170, 0);
+}
+.Declined b{
+    color: rgb(138, 2, 2);
+}
+.Missing b{
+    color: rgb(255, 230, 0);
+}
+.allrequests span{
+    margin-left:10px ;
+}
+
+.allrequests{
+
     text-decoration: underline;
     background-color: #162916; /* Green */
     border: none;
-    color: white;
+    
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    display:flex;
+    font-size: 15px;
     margin-bottom: 5px;
-    width:200px;
+    width: 200px;
 
 }
-.allrequests b:hover{
+.allrequests:hover{
     cursor: pointer;
 }
 .requestscontainer{

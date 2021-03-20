@@ -6,7 +6,7 @@ import {useAuth} from '../contexts/AuthContext';
 import {GrUserAdmin} from 'react-icons/gr'
 //import AdminReplies from './AdminReplies'
 export default function Admin(){
-    const [filter,setFilter] = useState("all");
+    const [filter,setFilter] = useState("");
     const [requests,setReq] = useState();
     const [click,setClick] = useState(false);
     const [view,setView] = useState();
@@ -14,15 +14,18 @@ export default function Admin(){
     const {logout} = useAuth();
     useEffect(()=>{
         firebase.firestore().collection("requests").onSnapshot((doc)=>{
-            setReq(doc.docs);
+            var arr = doc.docs.map((d)=>{
+                return {...d.data(),reqid:d.id}
+            })
+            setReq(arr);
         })
-    },[search])
+    },[])
 
     useEffect(()=>{
         if(click){
             setView((v)=>{
-                var arr = requests[v.index].data();
-                return {...arr,reqid:v.reqid,index:v.index};
+                var arr = requests[v.index];
+                return {...arr,index:v.index};
             })
         }
 
@@ -32,10 +35,10 @@ export default function Admin(){
     function handleClick(e){
         
         var i = e.target.id;
-        var arr = requests[i].data();
+        var arr = requests[i];
         //console.log(requests[i])
+        setView({...arr,index:i}); 
         setClick(s=>!s);
-        setView({...arr,reqid:requests[i].id,index:i}); 
     }
     function changeStatus(s){
         view.status = s;
@@ -61,22 +64,35 @@ export default function Admin(){
     }}  id = "filter">
         <option value="">Filter</option>
         <option value="id">By Id</option>
+        <option value="name">By Name</option>
         <option value="type">By Type</option>
+        <option value="status">By Approval Status</option>
     </select>
     <input value={search} onChange={(e)=>{
         setSearch(e.target.value);
     }
     } type="text"></input>
+    <br/>
+    <span className="labelapp">Approved</span>
+    <span className="labeldec">Declined</span>
+    <span className="labelmissing">Missing</span>
+
+
     </div>
     
     <div className="requestscontainer">{requests&&requests.map((r,i)=>{
         var s = true;
-        if(search!==""&&filter!=="all"){
-            s = r.data()[filter].toLowerCase().includes(search.toLowerCase());
+        if(search!==""&&filter!==""){
+            if(r[filter]){
+                s = r[filter].toLowerCase().includes(search.toLowerCase());
+            }else{
+        
+                s = false;
+            }
         }
         if(s){
-            console.log(i)
-            return(<div className="allrequests"   key={i}><b id = {i} onClick={handleClick}>{r.data().subject}</b></div>);
+        
+            return(<div className={"allrequests "+r.status} id = {i} onClick={handleClick}   key={i}><b id = {i} >{r.subject}</b><span>{r.id.toUpperCase()+" - "+r.name}</span></div>);
         }else{
             return null;
         }

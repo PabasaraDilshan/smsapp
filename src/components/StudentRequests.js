@@ -13,36 +13,38 @@ export default function StudentRequests(props){
     const [requests,setReq] = useState();
     useEffect(()=>{
         const query = firebase.firestore().collection("requests").where('id','==',currentUser.email.split("@")[0]).orderBy('type','asc');
-    query.onSnapshot((x)=>{
-        
-        setReq(x.docs);
+    const unsub = query.onSnapshot((x)=>{
+        var arr = x.docs.map((d)=>{
+            return {...d.data(),reqid:d.id}
+        })
+        setReq(arr);
 
     })
+    return unsub;
     
     },[currentUser.email]);
    
     useEffect(()=>{
         if(click){
             setView((v)=>{
-                var arr = requests[v.index].data();
-                return {...arr,reqid:v.reqid,index:v.index};
+                var arr = requests[v.index];
+                return {...arr,index:v.index};
             })
-            
         }
-       
 
     },[requests,click])
-    
 
     function handleClick(e){
-        setClick(s=>!s);
+       
+        console.log(e)
         var i = e.target.id;
-        console.log(i)
         if(requests[i]){
-            var arr = requests[i].data();
+            var arr = requests[i];
         
-            setView({...arr,reqid:requests[i].id,index:i});
+            setView({...arr,index:i});
+            setClick(s=>!s);
         }
+        
         
         
     }
@@ -51,9 +53,9 @@ export default function StudentRequests(props){
     
             {!click&&<ul className="reqcontainer">{requests.map((r,i)=>{
                 
-               return <li className="reqlist" id={i} onClick={handleClick} key = {i}><b>{r.data().subject}</b><div>{r.data().body&&(r.data().body.length>50?r.data().body.slice(0,50)+"...":r.data().body)}</div></li>
+               return <li className="reqlist" id={i} onClick={handleClick} key = {i}><b id={i}>{r.subject}</b><div id={i}>{r.body&&(r.body.length>50?r.body.slice(0,50)+"...":r.body)}</div></li>
             })}</ul>}
-            {click&&view&&<><button onClick={()=>setClick(s=>!s)}>Back</button>
+            {click&&<><button onClick={()=>setClick(s=>!s)}>Back</button>
                 <table>
                 <tbody><tr><td>Subject:</td><td>{view.subject}</td></tr>
                 <tr><td>Type:</td><td>{view.type}</td></tr>
