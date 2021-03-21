@@ -1,5 +1,7 @@
 import {  useEffect, useState } from "react";
 import firebase from '../firebase';
+import './StudentReplies.css';
+
 export default function Replies(props){
     const [rep,setRep] = useState();
     const [text,setText] = useState("");
@@ -38,7 +40,7 @@ export default function Replies(props){
     if(rep){  
 
     return(<><div className="replies">{rep.map((r,i)=>{
-        return (<div className={r.name+"rep"} key = {i}><b>--{r.name==="student"?props.view.name:"Admin"}--</b><p>{r.reply}</p></div>);
+        return (<div id="replyStudent" className={r.name+"rep"} key = {i}><b>--{r.name==="student"?props.view.name:"Admin"}--</b><p>{r.reply}</p></div>);
     })}</div>
     <div className="replybox">
             <textarea onChange={(e)=>{setText(e.target.value)}} value={text}></textarea>

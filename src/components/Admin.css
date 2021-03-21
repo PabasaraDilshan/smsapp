@@ -167,7 +167,7 @@
     color: black;
 }
 
-.backBtn{
+.backBtnAdmin{
     background-color: darkgreen;
     font-weight: bold;
     width: 80px;
@@ -181,6 +181,11 @@
 .adminBody h2{
     margin-left: 100px;
 }
-.details{
-    margin-left: 100px;
+.requesttableAdmin td,th{
+    vertical-align: top;
+    height:50px;
+
+}
+.requesttableAdmin th{
+    width:100px;
 }

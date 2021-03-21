@@ -3,7 +3,7 @@ import firebase from '../firebase' ;
 import { useEffect, useState} from 'react';
 import StudentReplies from './StudentReplies'
 import './StudentRequests.css'
-import {BsDownload} from 'react-icons/bs'
+import {RiDownloadFill} from 'react-icons/ri'
 
 
 export default function StudentRequests(props){
@@ -54,16 +54,19 @@ export default function StudentRequests(props){
                 
                return <li className="reqlist" id={i} onClick={handleClick} key = {i}><b id={i}>{r.subject}</b><div id={i}>{r.body&&(r.body.length>50?r.body.slice(0,50)+"...":r.body)}</div></li>
             })}</ul>}
-            {click&&<><button onClick={()=>setClick(s=>!s)}>Back</button>
-                <table>
-                <tbody><tr><td>Subject:</td><td>{view.subject}</td></tr>
-                <tr><td>Type:</td><td>{view.type}</td></tr>
-                <tr><td>Body:</td><td>{view.body}</td></tr>
-                {view.filelink?<tr><td>File Link:</td><td><a href = {view.filelink}><BsDownload/></a></td></tr>:null}
+            {click&&<><button className="backBtnStudent" onClick={()=>setClick(s=>!s)}>Back</button>
+                <div className="requestStudent">
+                <table className="requesttableStudent">
+                <tbody><tr><td><b>Subject:</b></td><td>{view.subject}</td></tr>
+                <tr><td><b>Type:</b></td><td>{view.type}</td></tr>
+                <tr><td><b>Body:</b></td><td>{view.body}</td></tr><br/>
+                {view.filelink?<tr><td><b>File Link:</b></td><td><a href = {view.filelink}><RiDownloadFill/></a></td></tr>:null}
                 </tbody></table>
                 <h2><strong>{view.status}</strong></h2>
                 <hr/>
+               
                 <StudentReplies isadmin={false} view={view}/>
+                </div>
               </>
               }
             

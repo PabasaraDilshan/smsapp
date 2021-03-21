@@ -7,7 +7,8 @@
     width: 400px;
     margin-bottom: 5px;
     padding: 5px 20px;
-    background-color: rgba(148, 148, 148, 0.555);
+    background-color: rgba(148, 148, 148, 0.692);
+    margin-left: 650px;
 }
 .reqcontainer li{
     list-style-type: none;
@@ -18,7 +19,8 @@
 
 .reqlist:hover b{
 
- color: rgb(0, 140, 255);  
+ color: green;  
+ font-size: larger;
  
 }
 .replies{
@@ -55,4 +57,33 @@
     background-color: rgba(223, 213, 213, 0.493);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
+}
+.backBtnStudent{
+    background-color: darkgreen;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-left: 94.1%;
+}
+.requesttableStudent td,th{
+    vertical-align: top;
+    height:50px;
+
+}
+.requesttableStudent th{
+    width:100px;
+}
+.requestStudent{
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 5px;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.774);
+    padding: 10px;
+}
+.requestStudent h2{
+    margin-left: 100px;
 }
