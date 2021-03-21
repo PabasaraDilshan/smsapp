@@ -7,7 +7,7 @@
     width: 400px;
     margin-bottom: 5px;
     padding: 5px 20px;
-    background-color: rgba(148, 148, 148, 0.692);
+    background-color: rgba(255, 255, 255, 0.349);
     margin-left: 650px;
 }
 .reqcontainer li{
@@ -81,7 +81,7 @@
     margin-right: 70px;
     margin-top: 5px;
     font-size: 18px;
-    background-color: rgba(255, 255, 255, 0.774);
+    background-color: rgba(255, 255, 255, 0.63);
     padding: 10px;
 }
 .requestStudent h2{
