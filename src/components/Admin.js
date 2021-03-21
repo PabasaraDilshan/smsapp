@@ -13,12 +13,13 @@ export default function Admin(){
     const [search,setSearch] = useState("")
     const {logout} = useAuth();
     useEffect(()=>{
-        firebase.firestore().collection("requests").onSnapshot((doc)=>{
+        var unsub = firebase.firestore().collection("requests").onSnapshot((doc)=>{
             var arr = doc.docs.map((d)=>{
                 return {...d.data(),reqid:d.id}
             })
             setReq(arr);
         })
+        return unsub;
     },[]);
 
     useEffect(()=>{

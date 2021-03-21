@@ -7,7 +7,8 @@ function Login() {
   const [email,setEmail] = useState(""); 
   const [password, setPassword] = useState("");
   const {login} = useAuth();
-  //const [loading,setLoading] = useState(false);
+  const [inpw,setInpw] = useState(false);
+  const [loading,setLoading] = useState(false);
 //const [error,setError] = useState("");
   const history = useHistory();
   
@@ -23,14 +24,15 @@ function Login() {
     e.preventDefault();
     try{
       //setError("");
-      //setLoading(true);
+      setLoading(true);
       await login(email,password);
-      history.push("/")
-    }catch{
-      console.log("Error");
+      history.push("/");
+    }catch(e){
+      console.log("Error",e);
+      setInpw(true);
       //setError("Failed to log in")
     }
-    //setLoading(false);
+    setLoading(false);
   }
   
   return (
@@ -43,7 +45,8 @@ function Login() {
 			<input type="text" onChange={changeEmail} value={email} name="" placeholder="Enter UserName Here"/>
 			<p>Password</p>
 			<input type="password" onChange={changePassword} value={password} name="" placeholder="Enter Password Here"/>
-			<input  type="submit" name="" value="Login"/>
+			<input disabled={loading}  type="submit" name="" value="Login" />
+      {inpw&&<span className="incorrectpw">*Username or Password is incorrect</span>}
 		</form>
 	</div></div>
     

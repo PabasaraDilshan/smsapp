@@ -25,12 +25,12 @@ export default function StudentRequests(props){
     },[currentUser.email]);
    
     useEffect(()=>{
+        if(click){
             setView((v)=>{
                 var arr = requests[v.index];
                 return {...arr,index:v.index};
             })
-        }
-
+        }}
     ,[requests,click])
 
     function handleClick(e){
