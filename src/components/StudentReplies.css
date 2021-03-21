@@ -1,0 +1,12 @@
+.replybox button{
+    background-color: darkgreen;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+.replybox, .replies, #repliyStudent{
+    margin-left: 40px;
+}

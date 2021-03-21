@@ -99,14 +99,14 @@ export default function Admin(){
 
 
     <div className="adminBody">
-     {click&&<><button className="backBtn" onClick={()=>setClick(s=>!s)}>Back</button>
-                <table>
-                <tbody><tr><td><b>Name : </b></td><td className="details">{view.name}</td></tr>
-                <tr><td><b>ID : </b></td><td className="details">{view.id}</td></tr>
-                <tr><td><b>Subject : </b></td><td className="details">{view.subject}</td></tr>
-                <tr><td><b>Type : </b></td><td className="details">{view.type}</td></tr>
-                <tr><td><b>Body : </b></td><td className="details">{view.body}</td></tr>
-                </tbody></table>
+     {click&&<><button className="backBtnAdmin" onClick={()=>setClick(s=>!s)}>Back</button>
+                <table className="requesttableAdmin">
+                <tr><th><b>Name :</b></th><td>{view.name}</td></tr>
+                <tr><th><b>ID :</b></th><td>{view.id}</td></tr>
+                <tr><th><b>Subject :</b></th><td>{view.subject}</td></tr>
+                <tr><th><b>Type :</b></th><td>{view.type}</td></tr>
+                <tr><th><b>Body :</b></th><td>{view.body}</td></tr>
+                </table>
                 <h2><strong>{view.status}</strong></h2>
                 <button className="approveBtn" onClick={()=>{
                     changeStatus("Approved");

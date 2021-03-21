@@ -72,7 +72,7 @@ export default function ReqForm(){
     return(
         <div className="requestFormBody">
             <h1 id="requestHeader" className="requestHeader">Request Form</h1>
-            <form className="requestform" onSubmit={handleSubmit} value="formVal">
+            <form className="requestform"  value="formVal">
                 <label>Index No.</label><br/>
                 <input type="text" className="index" id="index" onChange={changeIndexNo} value={index} required/><br/><br/>
                 <label>Name:</label><br/>
@@ -92,7 +92,7 @@ export default function ReqForm(){
                 <label>Attach any files containing evidence</label><br/>
                 <label className="selectFile">Select a file:</label>
                 <input type="file" id="myfile" className="myfile" onChange={changeFile} /><br/><br/>
-                <input type="submit" value="Submit" className={uploading?"Btnup":"Btn"} id="submitBtn" disabled={uploading}/>
+                <input type="submit" value="Submit" className={uploading?"Btnup":"Btn"} id="submitBtn" disabled={uploading} onClick={handleSubmit}/>
                 <input type="submit" value="Clear" className="Btn" id="clearBtn" onClick={clearImmediate}/>
             </form>
         </div>
