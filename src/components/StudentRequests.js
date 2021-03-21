@@ -30,8 +30,7 @@ export default function StudentRequests(props){
                 var arr = requests[v.index];
                 return {...arr,index:v.index};
             })
-        }
-        }
+        }}
     ,[requests,click])
 
     function handleClick(e){
